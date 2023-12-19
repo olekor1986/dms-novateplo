@@ -156,7 +156,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('admin.user.index') }}" class="nav-link">
                                     <i class="far fas fa-caret-right nav-icon"></i>
                                     <p>Users</p>
                                 </a>
@@ -168,7 +168,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('admin.staff.index') }}" class="nav-link">
                                     <i class="far fas fa-caret-right nav-icon"></i>
                                     <p>Staff</p>
                                 </a>
