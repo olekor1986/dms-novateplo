@@ -15,9 +15,16 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         \App\Models\User::factory(10)->create();
+
+        \App\Models\Source::factory(100)->create();
+
         $this->call([
             RoleSeeder::class,
             StaffSeeder::class,
+            CityDistristSeeder::class,
+            SourceFuelSeeder::class,
+            SourceTypeSeeder::class,
+
 
         ]);
     }

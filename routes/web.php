@@ -51,4 +51,50 @@ Route::group(['prefix' => 'admin'], function () {
         Route::patch('/{user}', [\App\Http\Controllers\Admin\UserController::class, 'update'])->name('admin.user.update');
         Route::delete('/{user}', [\App\Http\Controllers\Admin\UserController::class, 'destroy'])->name('admin.user.delete');
     });
+
+    /**  Admin Sources */
+    Route::group(['prefix' => 'sources'], function () {
+        Route::get('/', [\App\Http\Controllers\Admin\Source\SourceController::class, 'index'])->name('admin.source.index');
+        Route::get('/create', [\App\Http\Controllers\Admin\Source\SourceController::class, 'create'])->name('admin.source.create');
+        Route::get('/{source}', [\App\Http\Controllers\Admin\Source\SourceController::class, 'show'])->name('admin.source.show');
+        Route::post('/', [\App\Http\Controllers\Admin\Source\SourceController::class, 'store'])->name('admin.source.store');
+        Route::get('/{source}/edit', [\App\Http\Controllers\Admin\Source\SourceController::class, 'edit'])->name('admin.source.edit');
+        Route::patch('/{source}', [\App\Http\Controllers\Admin\Source\SourceController::class, 'update'])->name('admin.source.update');
+        Route::delete('/{source}', [\App\Http\Controllers\Admin\Source\SourceController::class, 'destroy'])->name('admin.source.delete');
+    });
+
+    /**  Admin Sources Type */
+    Route::group(['prefix' => 'source_types'], function () {
+        Route::get('/', [\App\Http\Controllers\Admin\Source\SourceTypeController::class, 'index'])->name('admin.source_type.index');
+        Route::get('/create', [\App\Http\Controllers\Admin\Source\SourceTypeController::class, 'create'])->name('admin.source_type.create');
+        Route::get('/{source_type}', [\App\Http\Controllers\Admin\Source\SourceTypeController::class, 'show'])->name('admin.source_type.show');
+        Route::post('/', [\App\Http\Controllers\Admin\Source\SourceTypeController::class, 'store'])->name('admin.source_type.store');
+        Route::get('/{source_type}/edit', [\App\Http\Controllers\Admin\Source\SourceTypeController::class, 'edit'])->name('admin.source_type.edit');
+        Route::patch('/{source_type}', [\App\Http\Controllers\Admin\Source\SourceTypeController::class, 'update'])->name('admin.source_type.update');
+        Route::delete('/{source_type}', [\App\Http\Controllers\Admin\Source\SourceTypeController::class, 'destroy'])->name('admin.source_type.delete');
+    });
+
+    /**  Admin Sources Fuel */
+    Route::group(['prefix' => 'source_fuels'], function () {
+        Route::get('/', [\App\Http\Controllers\Admin\Source\SourceFuelController::class, 'index'])->name('admin.source_fuel.index');
+        Route::get('/create', [\App\Http\Controllers\Admin\Source\SourceFuelController::class, 'create'])->name('admin.source_fuel.create');
+        Route::get('/{source_fuel}', [\App\Http\Controllers\Admin\Source\SourceFuelController::class, 'show'])->name('admin.source_fuel.show');
+        Route::post('/', [\App\Http\Controllers\Admin\Source\SourceFuelController::class, 'store'])->name('admin.source_fuel.store');
+        Route::get('/{source_fuel}/edit', [\App\Http\Controllers\Admin\Source\SourceFuelController::class, 'edit'])->name('admin.source_fuel.edit');
+        Route::patch('/{source_fuel}', [\App\Http\Controllers\Admin\Source\SourceFuelController::class, 'update'])->name('admin.source_fuel.update');
+        Route::delete('/{source_fuel}', [\App\Http\Controllers\Admin\Source\SourceFuelController::class, 'destroy'])->name('admin.source_fuel.delete');
+    });
+
+    /**  Admin City Districts */
+    Route::group(['prefix' => 'city_districts'], function () {
+        Route::get('/', [\App\Http\Controllers\Admin\Source\CityDistrictController::class, 'index'])->name('admin.city_district.index');
+        Route::get('/create', [\App\Http\Controllers\Admin\Source\CityDistrictController::class, 'create'])->name('admin.city_district.create');
+        Route::get('/{city_district}', [\App\Http\Controllers\Admin\Source\CityDistrictController::class, 'show'])->name('admin.city_district.show');
+        Route::post('/', [\App\Http\Controllers\Admin\Source\CityDistrictController::class, 'store'])->name('admin.city_district.store');
+        Route::get('/{city_district}/edit', [\App\Http\Controllers\Admin\Source\CityDistrictController::class, 'edit'])->name('admin.city_district.edit');
+        Route::patch('/{city_district}', [\App\Http\Controllers\Admin\Source\CityDistrictController::class, 'update'])->name('admin.city_district.update');
+        Route::delete('/{city_district}', [\App\Http\Controllers\Admin\Source\CityDistrictController::class, 'destroy'])->name('admin.city_district.delete');
+    });
+
+
 });

@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/select2/css/select2.min.css') }}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/fontawesome-free/css/all.min.css') }}">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+    <link rel="stylesheet"
+          href="{{ asset('adminlte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css') }}">
     <!-- overlayScrollbars -->
@@ -39,15 +44,15 @@
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
 
-            <!-- Messages Dropdown Menu -->
-            <li class="nav-item dropdown">
+        <!-- Messages Dropdown Menu Start -->
+
+        <!-- <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
                     <i class="far fa-comments"></i>
                     <span class="badge badge-danger navbar-badge">3</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                     <a href="#" class="dropdown-item">
-                        <!-- Message Start -->
                         <div class="media">
                             <img src="{{ asset('adminlte/dist/img/user1-128x128.jpg') }} " alt="User Avatar"
                                  class="img-size-50 mr-3 img-circle">
@@ -60,11 +65,9 @@
                                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                             </div>
                         </div>
-                        <!-- Message End -->
                     </a>
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item">
-                        <!-- Message Start -->
                         <div class="media">
                             <img src="{{ asset('adminlte/dist/img/user8-128x128.jpg') }} " alt="User Avatar"
                                  class="img-size-50 img-circle mr-3">
@@ -77,11 +80,9 @@
                                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                             </div>
                         </div>
-                        <!-- Message End -->
                     </a>
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item">
-                        <!-- Message Start -->
                         <div class="media">
                             <img src="{{ asset('adminlte/dist/img/user3-128x128.jpg') }} " alt="User Avatar"
                                  class="img-size-50 img-circle mr-3">
@@ -94,12 +95,14 @@
                                 <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
                             </div>
                         </div>
-                        <!-- Message End -->
                     </a>
                     <div class="dropdown-divider"></div>
                     <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
                 </div>
-            </li>
+            </li> -->
+
+            <!-- Messages Dropdown Menu End -->
+
             <!-- Notifications Dropdown Menu -->
             <li class="nav-item dropdown">
                 <a class="nav-link" data-toggle="dropdown" href="#">
@@ -178,9 +181,37 @@
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-industry"></i>
-                            <p>Heat Sources</p>
+                            <p>
+                                Heat Sources
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
                         </a>
-                    </li>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('admin.source.index') }}" class="nav-link">
+                                    <i class="far fas fa-caret-right nav-icon"></i>
+                                    <p>Heat Sources</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.source_type.index') }}" class="nav-link">
+                                    <i class="far fas fa-caret-right nav-icon"></i>
+                                    <p>Types</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.source_fuel.index') }}" class="nav-link">
+                                    <i class="far fas fa-caret-right nav-icon"></i>
+                                    <p>Fuels</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.city_district.index') }}" class="nav-link">
+                                    <i class="far fas fa-caret-right nav-icon"></i>
+                                    <p>Districts</p>
+                                </a>
+                            </li>
+                        </ul>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-hot-tub"></i>
@@ -292,10 +323,40 @@
 <script src="{{ asset('adminlte/plugins/jquery/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{ asset('adminlte/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+<!-- DataTables  & Plugins -->
+<script src="{{ asset('adminlte/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('adminlte/plugins/datatables-buttons/js/dataTables.buttons.min.js') }}"></script>
+<script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.bootstrap4.min.js') }}"></script>
+<script src="{{ asset('adminlte/plugins/jszip/jszip.min.js') }}"></script>
+<script src="{{ asset('adminlte/plugins/pdfmake/pdfmake.min.js') }}"></script>
+<script src="{{ asset('adminlte/plugins/pdfmake/vfs_fonts.js') }}"></script>
+<script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.html5.min.js') }}"></script>
+<script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.print.min.js') }}"></script>
+<script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 <!-- Select2 -->
 <script src="{{ asset('adminlte/plugins/select2/js/select2.full.min.js') }}"></script>
 <!-- bs-custom-file-input -->
 <script src="{{ asset('adminlte/plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
+<script>
+    $(function () {
+        $("#index_table").DataTable({
+            "responsive": true, "lengthChange": true, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#index_table_wrapper .col-md-6:eq(0)');
+        $('#show_table').DataTable({
+            "paging": false,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+    });
+</script>
 <script>
     $(function () {
         $('.tags').select2();

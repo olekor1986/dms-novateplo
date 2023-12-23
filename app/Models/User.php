@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Source\Source;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -60,6 +60,11 @@ class User extends Authenticatable
     public function staff()
     {
         return $this->belongsTo(Staff::class);
+    }
+
+    public function sources()
+    {
+        return $this->hasMany(Source::class);
     }
 
     static function getBanned()
