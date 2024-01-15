@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Source;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Source\SourceType\StoreRequest;
 use App\Http\Requests\Admin\Source\SourceType\UpdateRequest;
-use App\Models\Source\SourceType;
+use App\Models\SourceType;
 use Illuminate\Http\Request;
 
 class SourceTypeController extends Controller

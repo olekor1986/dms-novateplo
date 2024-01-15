@@ -6,9 +6,9 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class SourceFuelSeeder extends Seeder
+class BoilerFuelSeeder extends Seeder
 {
-    protected $source_fuels = [
+    protected $boiler_fuels = [
         [
             'title' => 'Natural Gas'
         ],
@@ -30,6 +30,6 @@ class SourceFuelSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('source_fuels')->insert($this->source_fuels);
+        DB::table('boiler_fuels')->insert($this->boiler_fuels);
     }
 }

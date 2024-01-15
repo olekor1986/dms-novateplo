@@ -6,11 +6,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Create Source Fuel</h1>
+                    <h1 class="m-0">Create Boiler Fuel</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item active">Source Fuel</li>
+                        <li class="breadcrumb-item active">Boiler Fuel</li>
                         <li class="breadcrumb-item active">Create</li>
                     </ol>
                 </div><!-- /.col -->
@@ -24,7 +24,7 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form action="{{ route('admin.source_fuel.store') }}" method="post">
+                <form action="{{ route('admin.boiler_fuel.store') }}" method="post">
                     @csrf
                     <div class="form-group">
                         <label for="title">Title

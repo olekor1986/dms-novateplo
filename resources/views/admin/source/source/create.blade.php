@@ -49,13 +49,6 @@
                         </label>
                     </div>
                     <div class="form-group">
-                        <label for="source_fuel_id">Fuel
-                            <select name="source_fuel_id" class="custom-select form-control" id="exampleSelectBorder">
-                                @foreach($source_fuels as $source_fuel)
-                                    <option value="{{ $source_fuel->id }}">{{ $source_fuel->title }}</option>
-                                @endforeach
-                            </select>
-                        </label>
                         <label for="source_type_id">Type
                             <select name="source_type_id" class="custom-select form-control" id="exampleSelectBorder">
                                 @foreach($source_types as $source_type)

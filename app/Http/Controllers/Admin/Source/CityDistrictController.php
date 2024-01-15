@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Source;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Source\CityDistrict\StoreRequest;
 use App\Http\Requests\Admin\Source\CityDistrict\UpdateRequest;
-use App\Models\Source\CityDistrict;
+use App\Models\CityDistrict;
 
 class CityDistrictController extends Controller
 {

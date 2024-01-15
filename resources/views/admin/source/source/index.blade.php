@@ -61,7 +61,23 @@
                                     </td>
                                     <td>{{ $source->connected_power }}</td>
                                     <td>{{ $source->gps }}</td>
-                                    <td>{{ $source->source_fuel->title }}</td>
+                                    <td>
+                                        @php
+                                            $fuels = [];
+                                            foreach($source->boilers as $boiler){
+                                                $fuels[] = $boiler->boiler_fuel->title;
+                                            }
+                                            $fuels = array_values(array_unique($fuels));
+                                            $fuelsCount = count($fuels);
+                                        @endphp
+                                        @foreach($fuels as $key => $fuel)
+                                            @if($key != ($fuelsCount - 1))
+                                                {{ $fuel . ', ' }}
+                                            @else
+                                                {{ $fuel }}
+                                            @endif
+                                        @endforeach
+                                    </td>
                                     <td>{{ $source->source_type->title }}</td>
                                     <td>{{ $source->city_district->title }}</td>
                                     <td>{{ $source->user->first_name . ' ' . $source->user->last_name }}</td>

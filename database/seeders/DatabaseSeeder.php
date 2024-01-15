@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,11 +19,13 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Source::factory(100)->create();
 
+        \App\Models\Boiler::factory(800)->create();
+
         $this->call([
             RoleSeeder::class,
             StaffSeeder::class,
             CityDistristSeeder::class,
-            SourceFuelSeeder::class,
+            BoilerFuelSeeder::class,
             SourceTypeSeeder::class,
 
 

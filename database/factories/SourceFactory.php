@@ -22,7 +22,6 @@ class SourceFactory extends Factory
         'connected_power' => $this->faker->randomFloat(2, 0.5, 2),
         'gps' => strval($this->faker->randomFloat(6, 35.0, 35.013818)) . ',' .
             strval($this->faker->randomFloat(6, -88.297977, -88.0)),
-        'source_fuel_id' => random_int(1, 4),
         'source_type_id' => random_int(1, 4),
         'city_district_id' => random_int(1, 5),
         'user_id' => random_int(1, 9),

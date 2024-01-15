@@ -74,16 +74,6 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('/{source_type}', [\App\Http\Controllers\Admin\Source\SourceTypeController::class, 'destroy'])->name('admin.source_type.delete');
     });
 
-    /**  Admin Sources Fuel */
-    Route::group(['prefix' => 'source_fuels'], function () {
-        Route::get('/', [\App\Http\Controllers\Admin\Source\SourceFuelController::class, 'index'])->name('admin.source_fuel.index');
-        Route::get('/create', [\App\Http\Controllers\Admin\Source\SourceFuelController::class, 'create'])->name('admin.source_fuel.create');
-        Route::get('/{source_fuel}', [\App\Http\Controllers\Admin\Source\SourceFuelController::class, 'show'])->name('admin.source_fuel.show');
-        Route::post('/', [\App\Http\Controllers\Admin\Source\SourceFuelController::class, 'store'])->name('admin.source_fuel.store');
-        Route::get('/{source_fuel}/edit', [\App\Http\Controllers\Admin\Source\SourceFuelController::class, 'edit'])->name('admin.source_fuel.edit');
-        Route::patch('/{source_fuel}', [\App\Http\Controllers\Admin\Source\SourceFuelController::class, 'update'])->name('admin.source_fuel.update');
-        Route::delete('/{source_fuel}', [\App\Http\Controllers\Admin\Source\SourceFuelController::class, 'destroy'])->name('admin.source_fuel.delete');
-    });
 
     /**  Admin City Districts */
     Route::group(['prefix' => 'city_districts'], function () {
@@ -96,5 +86,26 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('/{city_district}', [\App\Http\Controllers\Admin\Source\CityDistrictController::class, 'destroy'])->name('admin.city_district.delete');
     });
 
+    /**  Admin Boilers */
+    Route::group(['prefix' => 'boilers'], function () {
+        Route::get('/', [\App\Http\Controllers\Admin\Boiler\BoilerController::class, 'index'])->name('admin.boiler.index');
+        Route::get('/create', [\App\Http\Controllers\Admin\Boiler\BoilerController::class, 'create'])->name('admin.boiler.create');
+        Route::get('/{boiler}', [\App\Http\Controllers\Admin\Boiler\BoilerController::class, 'show'])->name('admin.boiler.show');
+        Route::post('/', [\App\Http\Controllers\Admin\Boiler\BoilerController::class, 'store'])->name('admin.boiler.store');
+        Route::get('/{boiler}/edit', [\App\Http\Controllers\Admin\Boiler\BoilerController::class, 'edit'])->name('admin.boiler.edit');
+        Route::patch('/{boiler}', [\App\Http\Controllers\Admin\Boiler\BoilerController::class, 'update'])->name('admin.boiler.update');
+        Route::delete('/{boiler}', [\App\Http\Controllers\Admin\Boiler\BoilerController::class, 'destroy'])->name('admin.boiler.delete');
+    });
+
+    /**  Admin Boiler Fuel */
+    Route::group(['prefix' => 'boiler_fuels'], function () {
+        Route::get('/', [\App\Http\Controllers\Admin\Boiler\BoilerFuelController::class, 'index'])->name('admin.boiler_fuel.index');
+        Route::get('/create', [\App\Http\Controllers\Admin\Boiler\BoilerFuelController::class, 'create'])->name('admin.boiler_fuel.create');
+        Route::get('/{boiler_fuel}', [\App\Http\Controllers\Admin\Boiler\BoilerFuelController::class, 'show'])->name('admin.boiler_fuel.show');
+        Route::post('/', [\App\Http\Controllers\Admin\Boiler\BoilerFuelController::class, 'store'])->name('admin.boiler_fuel.store');
+        Route::get('/{boiler_fuel}/edit', [\App\Http\Controllers\Admin\Boiler\BoilerFuelController::class, 'edit'])->name('admin.boiler_fuel.edit');
+        Route::patch('/{boiler_fuel}', [\App\Http\Controllers\Admin\Boiler\BoilerFuelController::class, 'update'])->name('admin.boiler_fuel.update');
+        Route::delete('/{boiler_fuel}', [\App\Http\Controllers\Admin\Boiler\BoilerFuelController::class, 'destroy'])->name('admin.boiler_fuel.delete');
+    });
 
 });

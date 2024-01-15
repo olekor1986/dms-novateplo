@@ -6,11 +6,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Show Source Fuel</h1>
+                    <h1 class="m-0">Show Boiler Fuel</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item active">Source Fuel</li>
+                        <li class="breadcrumb-item active">Boiler Fuel</li>
                         <li class="breadcrumb-item active">Show</li>
                     </ol>
                 </div><!-- /.col -->
@@ -37,10 +37,10 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td>{{ $source_fuel->id }}</td>
-                                <td>{{ $source_fuel->title }}</td>
-                                <td>{{ $source_fuel->created_at }}</td>
-                                <td>{{ $source_fuel->updated_at }}</td>
+                                <td>{{ $boiler_fuel->id }}</td>
+                                <td>{{ $boiler_fuel->title }}</td>
+                                <td>{{ $boiler_fuel->created_at }}</td>
+                                <td>{{ $boiler_fuel->updated_at }}</td>
                             </tr>
                             </tbody>
                         </table>

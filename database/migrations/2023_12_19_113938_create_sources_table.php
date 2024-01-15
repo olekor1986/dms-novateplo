@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('address');
             $table->float('connected_power')->nullable();
             $table->string('gps')->nullable();
-            $table->integer('source_fuel_id')->nullable();
             $table->integer('source_type_id')->nullable();
             $table->integer('city_district_id')->nullable();
             $table->integer('user_id')->nullable();

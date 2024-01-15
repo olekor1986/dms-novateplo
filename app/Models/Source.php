@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Source;
+namespace App\Models;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -27,11 +27,6 @@ class Source extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function source_fuel()
-    {
-        return $this->belongsTo(SourceFuel::class);
-    }
-
     public function source_type()
     {
         return $this->belongsTo(SourceType::class);
@@ -40,6 +35,11 @@ class Source extends Model
     public function city_district()
     {
         return $this->belongsTo(CityDistrict::class);
+    }
+
+    public function boilers()
+    {
+        return $this->hasMany(Boiler::class);
     }
 
     public function getLatAttribute()

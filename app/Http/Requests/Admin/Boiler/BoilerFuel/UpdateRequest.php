@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin\Source\SourceFuel;
+namespace App\Http\Requests\Admin\Boiler\BoilerFuel;
 
 use Illuminate\Foundation\Http\FormRequest;
 

@@ -200,23 +200,41 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('admin.source_fuel.index') }}" class="nav-link">
-                                    <i class="far fas fa-caret-right nav-icon"></i>
-                                    <p>Fuels</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
                                 <a href="{{ route('admin.city_district.index') }}" class="nav-link">
                                     <i class="far fas fa-caret-right nav-icon"></i>
                                     <p>Districts</p>
                                 </a>
                             </li>
                         </ul>
+                    </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-hot-tub"></i>
-                            <p>Boilers</p>
+                            <p>
+                                Boilers
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
                         </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('admin.boiler.index') }}" class="nav-link">
+                                    <i class="far fas fa-caret-right nav-icon"></i>
+                                    <p>Boilers</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far fas fa-caret-right nav-icon"></i>
+                                    <p>Types</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.boiler_fuel.index') }}" class="nav-link">
+                                    <i class="far fas fa-caret-right nav-icon"></i>
+                                    <p>Fuels</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">

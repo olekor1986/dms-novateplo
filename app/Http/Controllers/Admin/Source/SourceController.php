@@ -5,10 +5,9 @@ namespace App\Http\Controllers\Admin\Source;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\Source\Source\StoreRequest;
 use App\Http\Requests\Admin\Source\Source\UpdateRequest;
-use App\Models\Source\CityDistrict;
-use App\Models\Source\Source;
-use App\Models\Source\SourceFuel;
-use App\Models\Source\SourceType;
+use App\Models\CityDistrict;
+use App\Models\Source;
+use App\Models\SourceType;
 use App\Models\User;
 
 class SourceController extends Controller
@@ -23,13 +22,11 @@ class SourceController extends Controller
     public function create()
     {
         $city_districts = CityDistrict::all();
-        $source_fuels = SourceFuel::all();
         $source_types = SourceType::all();
         $users = User::all();
 
         return view('admin.source.source.create', compact(
             'city_districts',
-            'source_fuels',
             'source_types',
             'users'
         ));
@@ -55,13 +52,11 @@ class SourceController extends Controller
     {
 
         $city_districts = CityDistrict::all();
-        $source_fuels = SourceFuel::all();
         $source_types = SourceType::all();
         $users = User::all();
 
         return view('admin.source.source.edit', compact(
             'city_districts',
-            'source_fuels',
             'source_types',
             'users',
             'source'
