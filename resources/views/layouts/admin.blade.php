@@ -223,9 +223,9 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('admin.burner_type.index') }}" class="nav-link">
                                     <i class="far fas fa-caret-right nav-icon"></i>
-                                    <p>Types</p>
+                                    <p>Burner Types</p>
                                 </a>
                             </li>
                             <li class="nav-item">

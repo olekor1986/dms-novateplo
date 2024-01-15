@@ -60,6 +60,13 @@
                         </label>
                     </div>
                     <div class="form-group">
+                        <label for="burner_type_id">Burner Type
+                            <select name="burner_type_id" class="custom-select form-control" id="exampleSelectBorder">
+                                @foreach($burner_types as $burner_type)
+                                    <option value="{{ $burner_type->id }}">{{ $burner_type->title }}</option>
+                                @endforeach
+                            </select>
+                        </label>
                         <label for="mount_year">Mount Year
                             <input class="form-control" value="2010" type="number" min="1900" max="2099" step="1"
                                    name="mount_year">

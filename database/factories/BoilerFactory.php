@@ -31,6 +31,7 @@ class BoilerFactory extends Factory
             'in_work' => boolval(random_int(0, 1)),
             'source_id' => random_int(1, 100),
             'boiler_fuel_id' => random_int(1, 4),
+            'burner_type_id' => random_int(1, 4),
         ];
     }
 }

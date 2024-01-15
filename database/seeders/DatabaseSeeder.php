@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             CityDistristSeeder::class,
             BoilerFuelSeeder::class,
             SourceTypeSeeder::class,
+            BurnerTypeSeeder::class,
 
 
         ]);

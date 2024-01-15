@@ -33,6 +33,7 @@
                                 <th>Title</th>
                                 <th>Source</th>
                                 <th>Energy Carrier</th>
+                                <th>Burner Type</th>
                                 <th>Fuel</th>
                                 <th>Power</th>
                                 <th>Efficient</th>
@@ -51,6 +52,7 @@
                                 <td>{{ $boiler->title}}</td>
                                 <td>{{ $boiler->source->address}}</td>
                                 <td>{{ $boiler->energy_carrier}}</td>
+                                <td>{{ $boiler->burner_type->title}}</td>
                                 <td>{{ $boiler->boiler_fuel->title }}</td>
                                 <td>{{ $boiler->power}}</td>
                                 <td>{{ $boiler->efficient}}</td>

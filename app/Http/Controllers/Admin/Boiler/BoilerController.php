@@ -7,6 +7,7 @@ use App\Http\Requests\Admin\Boiler\Boiler\StoreRequest;
 use App\Http\Requests\Admin\Boiler\Boiler\UpdateRequest;
 use App\Models\Boiler;
 use App\Models\BoilerFuel;
+use App\Models\BurnerType;
 use App\Models\Source;
 
 class BoilerController extends Controller
@@ -22,8 +23,9 @@ class BoilerController extends Controller
     {
         $sources = Source::all();
         $boiler_fuels = BoilerFuel::all();
+        $burner_types = BurnerType::all();
 
-        return view('admin.boiler.boiler.create', compact('sources', 'boiler_fuels'));
+        return view('admin.boiler.boiler.create', compact('sources', 'boiler_fuels', 'burner_types'));
     }
 
     public function store(StoreRequest $request)
@@ -44,8 +46,9 @@ class BoilerController extends Controller
     {
         $sources = Source::all();
         $boiler_fuels = BoilerFuel::all();
+        $burner_types = BurnerType::all();
 
-        return view('admin.boiler.boiler.edit', compact('boiler', 'sources', 'boiler_fuels'));
+        return view('admin.boiler.boiler.edit', compact('boiler', 'sources', 'boiler_fuels', 'burner_types'));
     }
 
     public function update(UpdateRequest $request, Boiler $boiler)

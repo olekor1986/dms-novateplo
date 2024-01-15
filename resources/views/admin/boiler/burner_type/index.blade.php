@@ -6,11 +6,11 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Boilers</h1>
+                    <h1 class="m-0">Burner Types</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item active">Boiler</li>
+                        <li class="breadcrumb-item active">Burner Type</li>
                         <li class="breadcrumb-item active">Index</li>
                     </ol>
                 </div><!-- /.col -->
@@ -25,13 +25,14 @@
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <p>
-                    <a class="btn btn-primary" href="{{ route('admin.boiler.create') }}">Create Boiler</a>
+                    <a class="btn btn-primary d-block" href="{{ route('admin.burner_type.create') }}">Create Burner
+                        Type</a>
                 </p>
             </div>
             <div class="row">
                 <div class="card">
                     <div class="card-header">
-                        <h2 class="card-title">Boiler Rooms</h2>
+                        <h2 class="card-title">Burner Types</h2>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -40,47 +41,26 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Title</th>
-                                <th>Source</th>
-                                <th>Energy Carrier</th>
-                                <th>Burner Type</th>
-                                <th>Fuel</th>
-                                <th>Power</th>
-                                <th>Efficient</th>
-                                <th>Mount Year</th>
-                                <th>Launch Year</th>
-                                <th>Index Number</th>
-                                <th>Serial Number</th>
-                                <th>Reg Number</th>
-                                <th>Check Date</th>
-                                <th>In Work</th>
+                                <th>Created</th>
+                                <th>Updated</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($boilers as $boiler)
+                            @foreach($burner_types as $burner_type)
                                 <tr>
-                                    <td>{{ $boiler->id }}</td>
+                                    <td>{{ $burner_type->id }}</td>
                                     <td>
-                                        <a href="{{ route('admin.boiler.show', $boiler->id) }}">{{ $boiler->title}}</a>
+                                        <a href="{{ route('admin.burner_type.show', $burner_type->id) }}">{{ $burner_type->title }}</a>
                                     </td>
-                                    <td>{{ $boiler->source->address}}</td>
-                                    <td>{{ $boiler->energy_carrier}}</td>
-                                    <td>{{ $boiler->burner_type->title}}</td>
-                                    <td>{{ $boiler->boiler_fuel->title }}</td>
-                                    <td>{{ $boiler->power}}</td>
-                                    <td>{{ $boiler->efficient}}</td>
-                                    <td>{{ $boiler->mount_year}}</td>
-                                    <td>{{ $boiler->launch_year}}</td>
-                                    <td>{{ $boiler->index_number}}</td>
-                                    <td>{{ $boiler->serial_number}}</td>
-                                    <td>{{ $boiler->reg_number}}</td>
-                                    <td>{{ $boiler->check_date}}</td>
-                                    <td>{{ $boiler->in_work}}</td>
+                                    <td>{{ $burner_type->created_at }}</td>
+                                    <td>{{ $burner_type->updated_at }}</td>
                                     <td>
                                         <a class="fas fa-edit btn-outline-warning d-inline-block"
-                                           href="{{ route('admin.boiler.edit', $boiler->id) }}"></a>
+                                           href="{{ route('admin.burner_type.edit', $burner_type->id) }}"></a>
                                         <form class="d-inline-block"
-                                              action="{{ route('admin.boiler.delete', $boiler->id) }}" method="post">
+                                              action="{{ route('admin.burner_type.delete', $burner_type->id) }}"
+                                              method="post">
                                             @csrf
                                             @method('delete')
                                             <button
@@ -92,10 +72,9 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.card-body -->
                 </div>
-                <!-- /.card -->
             </div>
+            <!-- /.row -->
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->

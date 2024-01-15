@@ -108,4 +108,15 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('/{boiler_fuel}', [\App\Http\Controllers\Admin\Boiler\BoilerFuelController::class, 'destroy'])->name('admin.boiler_fuel.delete');
     });
 
+    /**  Admin Burner Type */
+    Route::group(['prefix' => 'burner_types'], function () {
+        Route::get('/', [\App\Http\Controllers\Admin\Boiler\BurnerTypeController::class, 'index'])->name('admin.burner_type.index');
+        Route::get('/create', [\App\Http\Controllers\Admin\Boiler\BurnerTypeController::class, 'create'])->name('admin.burner_type.create');
+        Route::get('/{burner_type}', [\App\Http\Controllers\Admin\Boiler\BurnerTypeController::class, 'show'])->name('admin.burner_type.show');
+        Route::post('/', [\App\Http\Controllers\Admin\Boiler\BurnerTypeController::class, 'store'])->name('admin.burner_type.store');
+        Route::get('/{burner_type}/edit', [\App\Http\Controllers\Admin\Boiler\BurnerTypeController::class, 'edit'])->name('admin.burner_type.edit');
+        Route::patch('/{burner_type}', [\App\Http\Controllers\Admin\Boiler\BurnerTypeController::class, 'update'])->name('admin.burner_type.update');
+        Route::delete('/{burner_type}', [\App\Http\Controllers\Admin\Boiler\BurnerTypeController::class, 'destroy'])->name('admin.burner_type.delete');
+    });
+
 });

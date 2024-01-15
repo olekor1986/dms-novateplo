@@ -37,6 +37,7 @@ class UpdateRequest extends FormRequest
             'in_work' => 'boolean',
             'source_id' => 'integer',
             'boiler_fuel_id' => 'integer',
+            'burner_type_id' => 'integer',
         ];
     }
 }

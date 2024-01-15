@@ -20,4 +20,9 @@ class Boiler extends Model
     {
         return $this->belongsTo(BoilerFuel::class);
     }
+
+    public function burner_type()
+    {
+        return $this->belongsTo(BurnerType::class);
+    }
 }
