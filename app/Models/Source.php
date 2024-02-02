@@ -42,6 +42,11 @@ class Source extends Model
         return $this->hasMany(Boiler::class);
     }
 
+    public function pumps()
+    {
+        return $this->hasMany(Pump::class);
+    }
+
     public function getLatAttribute()
     {
         if(!isset($this->gps)){
@@ -60,7 +65,7 @@ class Source extends Model
         return $gps[1];
     }
 
-    static function getInWorkStatus()
+    static function getSourceInWorkStatus()
     {
         return [
             self::IN_WORK => 'Yes',
@@ -68,12 +73,12 @@ class Source extends Model
         ];
     }
 
-    public function getInWorkStatusAttribute()
+    public function getSourceInWorkStatusAttribute()
     {
         if ($this->in_work === NULL) {
             return 'None';
         }
-        return self::getInWorkStatus()[$this->in_work];
+        return self::getSourceInWorkStatus()[$this->in_work];
     }
 
     static function getMonitoringStatus()

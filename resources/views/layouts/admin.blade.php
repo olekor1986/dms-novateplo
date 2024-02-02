@@ -239,8 +239,25 @@
                     <li class="nav-item">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-fan"></i>
-                            <p>Pumps</p>
+                            <p>
+                                Pumps
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
                         </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('admin.pump.index') }}" class="nav-link">
+                                    <i class="far fas fa-caret-right nav-icon"></i>
+                                    <p>Pumps</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.pump_type.index') }}" class="nav-link">
+                                    <i class="far fas fa-caret-right nav-icon"></i>
+                                    <p>Pump Types</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">
@@ -311,6 +328,29 @@
                             <i class="nav-icon fas fa-wrench"></i>
                             <p>Repairs</p>
                         </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-toolbox"></i>
+                            <p>
+                                Spare Parts
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ route('admin.bearing.index') }}" class="nav-link">
+                                    <i class="far fas fa-caret-right nav-icon"></i>
+                                    <p>Bearings</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.mechanical_seal.index') }}" class="nav-link">
+                                    <i class="far fas fa-caret-right nav-icon"></i>
+                                    <p>Mechanical Seals</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </nav>

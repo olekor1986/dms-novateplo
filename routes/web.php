@@ -119,4 +119,47 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('/{burner_type}', [\App\Http\Controllers\Admin\Boiler\BurnerTypeController::class, 'destroy'])->name('admin.burner_type.delete');
     });
 
+    /**  Admin Pumps */
+    Route::group(['prefix' => 'pumps'], function () {
+        Route::get('/', [\App\Http\Controllers\Admin\Pump\PumpController::class, 'index'])->name('admin.pump.index');
+        Route::get('/create', [\App\Http\Controllers\Admin\Pump\PumpController::class, 'create'])->name('admin.pump.create');
+        Route::get('/{pump}', [\App\Http\Controllers\Admin\Pump\PumpController::class, 'show'])->name('admin.pump.show');
+        Route::post('/', [\App\Http\Controllers\Admin\Pump\PumpController::class, 'store'])->name('admin.pump.store');
+        Route::get('/{pump}/edit', [\App\Http\Controllers\Admin\Pump\PumpController::class, 'edit'])->name('admin.pump.edit');
+        Route::patch('/{pump}', [\App\Http\Controllers\Admin\Pump\PumpController::class, 'update'])->name('admin.pump.update');
+        Route::delete('/{pump}', [\App\Http\Controllers\Admin\Pump\PumpController::class, 'destroy'])->name('admin.pump.delete');
+    });
+
+    /**  Admin Pump Type */
+    Route::group(['prefix' => 'pump_types'], function () {
+        Route::get('/', [\App\Http\Controllers\Admin\Pump\PumpTypeController::class, 'index'])->name('admin.pump_type.index');
+        Route::get('/create', [\App\Http\Controllers\Admin\Pump\PumpTypeController::class, 'create'])->name('admin.pump_type.create');
+        Route::get('/{pump_type}', [\App\Http\Controllers\Admin\Pump\PumpTypeController::class, 'show'])->name('admin.pump_type.show');
+        Route::post('/', [\App\Http\Controllers\Admin\Pump\PumpTypeController::class, 'store'])->name('admin.pump_type.store');
+        Route::get('/{pump_type}/edit', [\App\Http\Controllers\Admin\Pump\PumpTypeController::class, 'edit'])->name('admin.pump_type.edit');
+        Route::patch('/{pump_type}', [\App\Http\Controllers\Admin\Pump\PumpTypeController::class, 'update'])->name('admin.pump_type.update');
+        Route::delete('/{pump_type}', [\App\Http\Controllers\Admin\Pump\PumpTypeController::class, 'destroy'])->name('admin.pump_type.delete');
+    });
+
+    /**  Admin Mechanical Seal */
+    Route::group(['prefix' => 'mechanical_seals'], function () {
+        Route::get('/', [\App\Http\Controllers\Admin\SparePart\MechanicalSealController::class, 'index'])->name('admin.mechanical_seal.index');
+        Route::get('/create', [\App\Http\Controllers\Admin\SparePart\MechanicalSealController::class, 'create'])->name('admin.mechanical_seal.create');
+        Route::get('/{mechanical_seal}', [\App\Http\Controllers\Admin\SparePart\MechanicalSealController::class, 'show'])->name('admin.mechanical_seal.show');
+        Route::post('/', [\App\Http\Controllers\Admin\SparePart\MechanicalSealController::class, 'store'])->name('admin.mechanical_seal.store');
+        Route::get('/{mechanical_seal}/edit', [\App\Http\Controllers\Admin\SparePart\MechanicalSealController::class, 'edit'])->name('admin.mechanical_seal.edit');
+        Route::patch('/{mechanical_seal}', [\App\Http\Controllers\Admin\SparePart\MechanicalSealController::class, 'update'])->name('admin.mechanical_seal.update');
+        Route::delete('/{mechanical_seal}', [\App\Http\Controllers\Admin\SparePart\MechanicalSealController::class, 'destroy'])->name('admin.mechanical_seal.delete');
+    });
+
+    /**  Admin Bearing */
+    Route::group(['prefix' => 'bearings'], function () {
+        Route::get('/', [\App\Http\Controllers\Admin\SparePart\BearingController::class, 'index'])->name('admin.bearing.index');
+        Route::get('/create', [\App\Http\Controllers\Admin\SparePart\BearingController::class, 'create'])->name('admin.bearing.create');
+        Route::get('/{bearing}', [\App\Http\Controllers\Admin\SparePart\BearingController::class, 'show'])->name('admin.bearing.show');
+        Route::post('/', [\App\Http\Controllers\Admin\SparePart\BearingController::class, 'store'])->name('admin.bearing.store');
+        Route::get('/{bearing}/edit', [\App\Http\Controllers\Admin\SparePart\BearingController::class, 'edit'])->name('admin.bearing.edit');
+        Route::patch('/{bearing}', [\App\Http\Controllers\Admin\SparePart\BearingController::class, 'update'])->name('admin.bearing.update');
+        Route::delete('/{bearing}', [\App\Http\Controllers\Admin\SparePart\BearingController::class, 'destroy'])->name('admin.bearing.delete');
+    });
 });

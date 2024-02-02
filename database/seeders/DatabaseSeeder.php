@@ -19,7 +19,9 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Source::factory(100)->create();
 
-        \App\Models\Boiler::factory(800)->create();
+        \App\Models\Boiler::factory(400)->create();
+
+        \App\Models\Pump::factory(800)->create();
 
         $this->call([
             RoleSeeder::class,
@@ -28,6 +30,9 @@ class DatabaseSeeder extends Seeder
             BoilerFuelSeeder::class,
             SourceTypeSeeder::class,
             BurnerTypeSeeder::class,
+            PumpTypeSeeder::class,
+            MechanicalSealSeeder::class,
+            BearingSeeder::class,
 
 
         ]);
