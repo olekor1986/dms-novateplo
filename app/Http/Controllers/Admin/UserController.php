@@ -48,7 +48,9 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-        return view('admin.user.show', compact('user'));
+        $sources = $user->sources()->orderBy('in_work')->orderBy('source_type_id')->get();
+
+        return view('admin.user.show', compact('user', 'sources'));
     }
 
     public function edit(User $user)

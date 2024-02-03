@@ -31,6 +31,7 @@ class StoreRequest extends FormRequest
             'engine_speed' => 'nullable|string',
             'engine_title' => 'nullable|string',
             'serial_number' => 'nullable|string',
+            'index_number' => 'nullable|string',
             'images' => 'nullable|json',
             'shaft_diam' => 'nullable|integer',
             'front_bearing_id' => 'nullable|integer',

@@ -22,7 +22,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <!-- Small boxes (Stat box) -->
+            <!-- Cards -->
             <div class="row">
                 <div class="col-md-8">
                     <div class="card card-gray">

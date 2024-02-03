@@ -22,22 +22,29 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <!-- Small boxes (Stat box) -->
-            <div class="row w-75">
-                <table class="table table-sm table-bordered table-striped">
-                    <tr>
-                        <th>ID</th>
-                        <th>Title</th>
-                        <th>Created</th>
-                        <th>Updated</th>
-                    </tr>
-                    <tr>
-                        <td>{{ $staff->id }}</td>
-                        <td>{{ $staff->title }}</td>
-                        <td>{{ $staff->created_at }}</td>
-                        <td>{{ $staff->updated_at }}</td>
-                    </tr>
-                </table>
+            <div class="row">
+                <div class="card">
+                    <div class="card-body">
+                        <table id="show_table" class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Created</th>
+                                <th>Updated</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>{{ $staff->id }}</td>
+                                <td>{{ $staff->title }}</td>
+                                <td>{{ $staff->created_at }}</td>
+                                <td>{{ $staff->updated_at }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
             <!-- /.row -->
         </div><!-- /.container-fluid -->

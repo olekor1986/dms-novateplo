@@ -45,7 +45,11 @@ class SourceController extends Controller
 
     public function show(Source $source)
     {
-        return view('admin.source.source.show', compact('source'));
+        $boilers = $source->boilers()->orderBy('index_number')->get();
+
+        $pumps = $source->pumps()->orderBy('index_number')->get();
+
+        return view('admin.source.source.show', compact('source', 'boilers', 'pumps'));
     }
 
     public function edit(Source $source)

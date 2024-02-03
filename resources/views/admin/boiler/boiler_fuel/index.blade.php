@@ -24,10 +24,9 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <p>
-                    <a class="btn btn-primary d-block" href="{{ route('admin.boiler_fuel.create') }}">Create Boiler
-                        Fuel</a>
-                </p>
+                <a class="btn btn-app bg-info" href="{{ route('admin.boiler_fuel.create') }}">
+                    <i class="fas fa-plus"></i>Create
+                </a>
             </div>
             <div class="row">
                 <div class="card">

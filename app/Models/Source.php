@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -97,7 +96,7 @@ class Source extends Model
         return self::getMonitoringStatus()[$this->monitoring];
     }
 
-    static function getBalanceStatus()
+    static function getSourceBalanceStatus()
     {
         return [
             self::ON_BALANCE => 'Yes',
@@ -105,12 +104,22 @@ class Source extends Model
         ];
     }
 
-    public function getBalanceStatusAttribute()
+    public function getSourceBalanceStatusAttribute()
     {
         if ($this->balance === NULL) {
             return 'None';
         }
-        return self::getBalanceStatus()[$this->balance];
+        return self::getSourceBalanceStatus()[$this->balance];
+    }
+
+    public function created_by_user()
+    {
+        return $this->belongsTo(User::class, 'created_by', 'id');
+    }
+
+    public function updated_by_user()
+    {
+        return $this->belongsTo(User::class, 'updated_by', 'id');
     }
 
 }

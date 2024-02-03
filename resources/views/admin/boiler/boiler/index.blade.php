@@ -24,9 +24,9 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <p>
-                    <a class="btn btn-primary" href="{{ route('admin.boiler.create') }}">Create Boiler</a>
-                </p>
+                <a class="btn btn-app bg-info" href="{{ route('admin.boiler.create') }}">
+                    <i class="fas fa-plus"></i>Create
+                </a>
             </div>
             <div class="row">
                 <div class="card">
@@ -64,7 +64,7 @@
                                         <a href="{{ route('admin.boiler.show', $boiler->id) }}">{{ $boiler->title}}</a>
                                     </td>
                                     <td>{{ $boiler->source->address}}</td>
-                                    <td>{{ $boiler->energy_carrier}}</td>
+                                    <td>{{ $boiler->boilerEnergyCarrier}}</td>
                                     <td>{{ $boiler->burner_type->title}}</td>
                                     <td>{{ $boiler->boiler_fuel->title }}</td>
                                     <td>{{ $boiler->power}}</td>

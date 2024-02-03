@@ -35,9 +35,7 @@ class PumpController extends Controller
 
     public function show(Pump $pump)
     {
-        $source = Source::find($pump->source_id);
-
-        return view('admin.pump.pump.show', compact('pump', 'source'));
+        return view('admin.pump.pump.show', compact('pump'));
     }
 
     public function edit(Pump $pump)

@@ -25,6 +25,7 @@ class PumpFactory extends Factory
             'engine_speed' => random_int(2500, 3000),
             'engine_title' => $this->faker->word(),
             'serial_number' => crc32($this->faker->word()),
+            'index_number' => strval(random_int(1, 4)),
             'images' => '[{"0":["https://picsum.photos/400"]},{"1":["https://picsum.photos/400"]},{"2":["https://picsum.photos/400"]}]',
             'shaft_diam' => random_int(12, 50),
             'front_bearing_id' => random_int(1, 11),

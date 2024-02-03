@@ -24,39 +24,55 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row w-75">
-                <p>
-                    <a class="btn btn-primary" href="{{ route('admin.role.create') }}">Create Role</a>
-                </p>
-                <table class="table table-sm table-bordered table-striped">
-                    <tr>
-                        <th>ID</th>
-                        <th>Title</th>
-                        <th>Created</th>
-                        <th>Updated</th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    @foreach($roles as $role)
-                        <tr>
-                            <td>{{ $role->id }}</td>
-                            <td><a href="{{ route('admin.role.show', $role->id) }}">{{ $role->title }}</a></td>
-                            <td>{{ $role->created_at }}</td>
-                            <td>{{ $role->updated_at }}</td>
-                            <td>
-                                <a class="btn btn-warning" href="{{ route('admin.role.edit', $role->id) }}">Edit</a></td>
-                            </td>
-                            <td>
-                                <form action="{{ route('admin.role.delete', $role->id) }}" method="post">
-                                    @csrf
-                                    @method('delete')
-                                    <button class="btn btn-danger">Del</button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                </table>
+                <a class="btn btn-app bg-info" href="{{ route('admin.role.create') }}">
+                    <i class="fas fa-plus"></i>Create
+                </a>
             </div>
-            <!-- /.row -->
+            <div class="row">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Users</h2>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="index_table" class="table table-sm table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Created</th>
+                                <th>Updated</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($roles as $role)
+                                <tr>
+                                    <td>{{ $role->id }}</td>
+                                    <td><a href="{{ route('admin.role.show', $role->id) }}">{{ $role->title }}</a></td>
+                                    <td>{{ $role->created_at }}</td>
+                                    <td>{{ $role->updated_at }}</td>
+                                    <td>
+                                        <a class="fas fa-edit btn-outline-warning d-inline-block"
+                                           href="{{ route('admin.role.edit', $role->id) }}"></a>
+                                        <form class="d-inline-block"
+                                              action="{{ route('admin.role.delete', $role->id) }}"
+                                              method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <button
+                                                class="fas fa-trash btn-outline-danger border-0 bg-transparent"></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
         </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->

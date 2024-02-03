@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('engine_speed')->nullable();
             $table->string('engine_title')->nullable();
             $table->string('serial_number')->nullable();
+            $table->string('index_number')->nullable();
             $table->json('images')->nullable();
             $table->float('shaft_diam')->nullable();
             $table->integer('front_bearing_id')->nullable();
