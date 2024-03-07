@@ -275,7 +275,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href=" {{ route('admin.water_meter.index') }}" class="nav-link">
                                     <i class="far fas fa-caret-right nav-icon"></i>
                                     <p>Water Meters</p>
                                 </a>

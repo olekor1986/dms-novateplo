@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 
+use Database\Factories\WaterMeterFactory;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -25,6 +26,8 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\HeatingPipeline::factory(2000)->create();
 
+        \App\Models\WaterMeter::factory(500)->create();
+
         $this->call([
             RoleSeeder::class,
             StaffSeeder::class,
@@ -35,8 +38,6 @@ class DatabaseSeeder extends Seeder
             PumpTypeSeeder::class,
             MechanicalSealSeeder::class,
             BearingSeeder::class,
-
-
         ]);
     }
 }

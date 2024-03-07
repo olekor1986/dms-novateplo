@@ -173,4 +173,15 @@ Route::group(['prefix' => 'admin'], function () {
         Route::patch('/{heating_pipeline}', [\App\Http\Controllers\Admin\HeatingPipeline\HeatingPipelineController::class, 'update'])->name('admin.heating_pipeline.update');
         Route::delete('/{heating_pipeline}', [\App\Http\Controllers\Admin\HeatingPipeline\HeatingPipelineController::class, 'destroy'])->name('admin.heating_pipeline.delete');
     });
+
+    /**  Admin Water Meter */
+    Route::group(['prefix' => 'water_meters'], function () {
+        Route::get('/', [\App\Http\Controllers\Admin\WaterMeter\WaterMeterController::class, 'index'])->name('admin.water_meter.index');
+        Route::get('/create', [\App\Http\Controllers\Admin\WaterMeter\WaterMeterController::class, 'create'])->name('admin.water_meter.create');
+        Route::get('/{water_meter}', [\App\Http\Controllers\Admin\WaterMeter\WaterMeterController::class, 'show'])->name('admin.water_meter.show');
+        Route::post('/', [\App\Http\Controllers\Admin\WaterMeter\WaterMeterController::class, 'store'])->name('admin.water_meter.store');
+        Route::get('/{water_meter}/edit', [\App\Http\Controllers\Admin\WaterMeter\WaterMeterController::class, 'edit'])->name('admin.water_meter.edit');
+        Route::patch('/{water_meter}', [\App\Http\Controllers\Admin\WaterMeter\WaterMeterController::class, 'update'])->name('admin.water_meter.update');
+        Route::delete('/{water_meter}', [\App\Http\Controllers\Admin\WaterMeter\WaterMeterController::class, 'destroy'])->name('admin.water_meter.delete');
+    });
 });

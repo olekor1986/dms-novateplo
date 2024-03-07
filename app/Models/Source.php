@@ -51,6 +51,11 @@ class Source extends Model
         return $this->hasMany(HeatingPipeline::class);
     }
 
+    public function water_meters()
+    {
+        return $this->hasMany(WaterMeter::class);
+    }
+
     public function getLatAttribute()
     {
         if(!isset($this->gps)){

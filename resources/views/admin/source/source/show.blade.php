@@ -259,7 +259,7 @@
                     <!-- /.card -->
                     <div class="card card-gray">
                         <div class="card-header">
-                            <h3 class="card-title">More information...</h3>
+                            <h3 class="card-title">Source on the Map</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
                                         class="fas fa-minus"></i>
@@ -276,7 +276,7 @@
                     <!-- /.card -->
                     <div class="card card-gray">
                         <div class="card-header">
-                            <h3 class="card-title">More information...</h3>
+                            <h3 class="card-title">Water Meters</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
                                         class="fas fa-minus"></i>
@@ -286,7 +286,28 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Diameter</th>
+                                    <th>Purpose</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($water_meters as $water_meter)
+                                    <tr>
+                                        <td>{{ $water_meter->id }}</td>
+                                        <td>
+                                            <a href="{{ route('admin.water_meter.show', $water_meter->id) }}">{{ $water_meter->title}}</a>
+                                        </td>
+                                        <td>{{ $water_meter->diameter }}</td>
+                                        <td>{{ $water_meter->waterMeterPurpose }}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
                         </div>
                         <!-- /.card-body -->
                     </div>
