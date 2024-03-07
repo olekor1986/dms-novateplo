@@ -162,4 +162,15 @@ Route::group(['prefix' => 'admin'], function () {
         Route::patch('/{bearing}', [\App\Http\Controllers\Admin\SparePart\BearingController::class, 'update'])->name('admin.bearing.update');
         Route::delete('/{bearing}', [\App\Http\Controllers\Admin\SparePart\BearingController::class, 'destroy'])->name('admin.bearing.delete');
     });
+
+    /**  Admin Heating Pipeline */
+    Route::group(['prefix' => 'heating_pipelines'], function () {
+        Route::get('/', [\App\Http\Controllers\Admin\HeatingPipeline\HeatingPipelineController::class, 'index'])->name('admin.heating_pipeline.index');
+        Route::get('/create', [\App\Http\Controllers\Admin\HeatingPipeline\HeatingPipelineController::class, 'create'])->name('admin.heating_pipeline.create');
+        Route::get('/{heating_pipeline}', [\App\Http\Controllers\Admin\HeatingPipeline\HeatingPipelineController::class, 'show'])->name('admin.heating_pipeline.show');
+        Route::post('/', [\App\Http\Controllers\Admin\HeatingPipeline\HeatingPipelineController::class, 'store'])->name('admin.heating_pipeline.store');
+        Route::get('/{heating_pipeline}/edit', [\App\Http\Controllers\Admin\HeatingPipeline\HeatingPipelineController::class, 'edit'])->name('admin.heating_pipeline.edit');
+        Route::patch('/{heating_pipeline}', [\App\Http\Controllers\Admin\HeatingPipeline\HeatingPipelineController::class, 'update'])->name('admin.heating_pipeline.update');
+        Route::delete('/{heating_pipeline}', [\App\Http\Controllers\Admin\HeatingPipeline\HeatingPipelineController::class, 'destroy'])->name('admin.heating_pipeline.delete');
+    });
 });

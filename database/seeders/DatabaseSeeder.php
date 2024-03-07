@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\Pump::factory(800)->create();
 
+        \App\Models\HeatingPipeline::factory(2000)->create();
+
         $this->call([
             RoleSeeder::class,
             StaffSeeder::class,

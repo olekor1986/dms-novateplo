@@ -49,7 +49,9 @@ class SourceController extends Controller
 
         $pumps = $source->pumps()->orderBy('index_number')->get();
 
-        return view('admin.source.source.show', compact('source', 'boilers', 'pumps'));
+        $heating_pipelines = $source->heating_pipelines()->orderBy('pipe_start')->get();
+
+        return view('admin.source.source.show', compact('source', 'boilers', 'pumps', 'heating_pipelines'));
     }
 
     public function edit(Source $source)

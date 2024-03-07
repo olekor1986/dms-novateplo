@@ -260,7 +260,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('admin.heating_pipeline.index') }}" class="nav-link">
                             <i class="nav-icon fas fa-stream"></i>
                             <p>Heating Pipelines</p>
                         </a>

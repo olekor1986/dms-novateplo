@@ -177,6 +177,51 @@
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
+                    <div class="card card-gray">
+                        <div class="card-header">
+                            <h3 class="card-title">Heating Pipelines</h3>
+                            <div class="card-tools">
+                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                        class="fas fa-minus"></i>
+                                </button>
+                            </div>
+                            <!-- /.card-tools -->
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Section</th>
+                                    <th>Direct Diam</th>
+                                    <th>Reverse Diam</th>
+                                    <th>Length</th>
+                                    <th>Purpose</th>
+                                    <th>Laying</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($heating_pipelines as $heating_pipeline)
+                                    <tr class="">
+                                        <td>{{ $heating_pipeline->id }}</td>
+                                        <td>
+                                            <a href="{{ route('admin.heating_pipeline.show', $heating_pipeline->id) }}">
+                                                {{ $heating_pipeline->pipe_start . ' - ' . $heating_pipeline->pipe_end }}</a>
+                                        </td>
+                                        <td>{{ $heating_pipeline->direct_diam }}</td>
+                                        <td>{{ $heating_pipeline->reverse_diam }}</td>
+                                        <td>{{ $heating_pipeline->length }}</td>
+                                        <td>{{ $heating_pipeline->heatingPipelinePurposeType }}</td>
+                                        <td>{{ $heating_pipeline->heatingPipelineLayingType }}</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
                 </div>
                 <!-- /.col-md-8 -->
                 <div class="col-md-4">
