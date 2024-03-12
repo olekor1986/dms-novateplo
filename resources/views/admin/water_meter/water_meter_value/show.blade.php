@@ -77,7 +77,7 @@
                     <!-- /.card -->
                     <div class="card card-gray">
                         <div class="card-header">
-                            <h3 class="card-title">Values</h3>
+                            <h3 class="card-title">More information...</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
                                         class="fas fa-minus"></i>
@@ -87,28 +87,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Value</th>
-                                    <th>Date</th>
-                                    <th>After Check</th>
-                                    <th>Note</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($water_meter_values as $water_meter_value)
-                                    <tr>
-                                        <td>{{ $water_meter_value->id }}</td>
-                                        <td>{{ $water_meter_value->value }}</td>
-                                        <td>{{ $water_meter_value->date }}</td>
-                                        <td>{{ $water_meter_value->after_check }}</td>
-                                        <td>{{ $water_meter_value->note }}</td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -161,9 +140,9 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <ol>
-                                @foreach($water_meter->source->water_meters as $water_meter_in_source)
+                                @foreach($water_meter->source->water_meters as $water_meter)
                                     <li>
-                                        <a href="{{ route('admin.water_meter.show', $water_meter_in_source->id) }}">{{ $water_meter_in_source->title}}</a>
+                                        <a href="{{ route('admin.water_meter.show', $water_meter->id) }}">{{ $water_meter->title}}</a>
                                     </li>
                                 @endforeach
                             </ol>
@@ -173,7 +152,7 @@
                     <!-- /.card -->
                     <div class="card card-gray">
                         <div class="card-header">
-                            <h3 class="card-title">Add Value</h3>
+                            <h3 class="card-title">More information...</h3>
                             <div class="card-tools">
                                 <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
                                         class="fas fa-minus"></i>
@@ -183,32 +162,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <form action="{{ route('admin.water_meter_value.store') }}" method="post">
-                                @csrf
-                                <input type="hidden" name="water_meter_id" value="{{ $water_meter->id }}">
-                                <div class="form-group">
-                                    <label for="value">Value
-                                        <input class="form-control" value="{{ old('value') }}" type="text" name="value">
-                                    </label>
-                                    <label for="date">Date
-                                        <input class="form-control" value="{{ old('date') }}" type="month"
-                                               name="date" >
-                                    </label>
-                                    <label for="note">Note
-                                        <input class="form-control" value="{{ old('note') }}" type="text"
-                                               name="note">
-                                    </label>
-                                </div>
-                                <div class="form-group">
-                                    <label for="after_check">After Check
-                                        <select name="after_check" class="custom-select form-control" id="exampleSelectBorder">
-                                            <option value="0" selected>No</option>
-                                            <option value="1">Yes</option>
-                                        </select>
-                                    </label>
-                                </div>
-                                <button class="btn btn-success">Create</button>
-                            </form>
+
                         </div>
                         <!-- /.card-body -->
                     </div>

@@ -32,6 +32,11 @@ class WaterMeter extends Model
         return $this->belongsTo(Source::class);
     }
 
+    public function water_meter_values()
+    {
+        return $this->hasMany(WaterMeterValue::class);
+    }
+
     static function getWaterMeterDiameters()
     {
         return self::WM_DIAMETERS;

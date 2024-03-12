@@ -20,12 +20,13 @@ return new class extends Migration
             $table->string('gps')->nullable();
             $table->integer('source_type_id')->nullable();
             $table->integer('city_district_id')->nullable();
-            $table->integer('user_id')->nullable();
             $table->boolean('in_work')->default(true);
             $table->boolean('monitoring')->default(false);
             $table->boolean('balance')->default(true);
-	        $table->integer('created_by')->nullable();
-	        $table->integer('edited_by')->nullable();
+            $table->integer('master_id')->nullable();
+            $table->integer('s_master_id')->nullable();
+            $table->integer('created_by')->nullable();
+	        $table->integer('updated_by')->nullable();
             $table->timestamps();
         });
     }

@@ -184,4 +184,20 @@ Route::group(['prefix' => 'admin'], function () {
         Route::patch('/{water_meter}', [\App\Http\Controllers\Admin\WaterMeter\WaterMeterController::class, 'update'])->name('admin.water_meter.update');
         Route::delete('/{water_meter}', [\App\Http\Controllers\Admin\WaterMeter\WaterMeterController::class, 'destroy'])->name('admin.water_meter.delete');
     });
+
+    Route::group(['prefix' => 'water_meter_values'], function () {
+        Route::get('/', [\App\Http\Controllers\Admin\WaterMeter\WaterMeterValueController::class, 'index'])->name('admin.water_meter_value.index');
+        Route::get('/create', [\App\Http\Controllers\Admin\WaterMeter\WaterMeterValueController::class, 'create'])->name('admin.water_meter_value.create');
+        Route::get('/{water_meter_value}', [\App\Http\Controllers\Admin\WaterMeter\WaterMeterValueController::class, 'show'])->name('admin.water_meter_value.show');
+        Route::post('/', [\App\Http\Controllers\Admin\WaterMeter\WaterMeterValueController::class, 'store'])->name('admin.water_meter_value.store');
+        Route::get('/{water_meter_value}/edit', [\App\Http\Controllers\Admin\WaterMeter\WaterMeterValueController::class, 'edit'])->name('admin.water_meter_value.edit');
+        Route::patch('/{water_meter_value}', [\App\Http\Controllers\Admin\WaterMeter\WaterMeterValueController::class, 'update'])->name('admin.water_meter_value.update');
+        Route::delete('/{water_meter_value}', [\App\Http\Controllers\Admin\WaterMeter\WaterMeterValueController::class, 'destroy'])->name('admin.water_meter_value.delete');
+    });
+
+    Route::group(['prefix' => 'water_meter_report'], function () {
+        //Route::get('/', [\App\Http\Controllers\Admin\WaterMeter\WaterMeterReportController::class, 'index'])->name('admin.water_meter_report.index');
+        Route::get('/create', [\App\Http\Controllers\Admin\WaterMeter\WaterMeterReportController::class, 'create'])->name('admin.water_meter_report.create');
+        Route::post('/', [\App\Http\Controllers\Admin\WaterMeter\WaterMeterReportController::class, 'store'])->name('admin.water_meter_report.store');
+    });
 });

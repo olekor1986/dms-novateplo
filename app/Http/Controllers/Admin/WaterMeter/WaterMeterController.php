@@ -38,7 +38,9 @@ class WaterMeterController extends Controller
 
     public function show(WaterMeter $water_meter)
     {
-        return view('admin.water_meter.water_meter.show', compact('water_meter'));
+        $water_meter_values = $water_meter->water_meter_values()->orderByDesc('date')->get();
+
+        return view('admin.water_meter.water_meter.show', compact('water_meter', 'water_meter_values'));
     }
 
     public function edit(WaterMeter $water_meter)
