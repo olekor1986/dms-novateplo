@@ -61,9 +61,14 @@ class User extends Authenticatable
         return $this->belongsTo(Staff::class);
     }
 
-    public function sources()
+    public function master_sources()
     {
-        return $this->hasMany(Source::class);
+        return $this->hasMany(Source::class, 'id', 'master_id');
+    }
+
+    public function s_master_sources()
+    {
+        return $this->hasMany(Source::class, 'id', 'master_id');
     }
 
     static function getBanned()

@@ -18,12 +18,18 @@ class Source extends Model
     const ON_BALANCE = 1;
     const NOT_ON_BALANCE = 0;
 
+    const GPS = '34.517368,20.669463';
+
     protected $guarded = false;
 
-
-    public function user()
+    public function master()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'master_id', 'id');
+    }
+
+    public function s_master()
+    {
+        return $this->belongsTo(User::class, 's_master_id', 'id');
     }
 
     public function source_type()
@@ -56,22 +62,26 @@ class Source extends Model
         return $this->hasMany(WaterMeter::class);
     }
 
+    public function getSourceGpsAttribute()
+    {
+        $pattern = '/^(|\-)(\d{1,2})\.(\d{1,9})\,(|\s){1}(|\-)(\d{1,2})\.(\d{1,9})$/';
+        if (isset($this->gps) && preg_match($pattern, $this->gps)) {
+            return $this->gps;
+        } else {
+            return self::GPS;
+        }
+    }
+
     public function getLatAttribute()
     {
-        if(!isset($this->gps)){
-            return 0;
-        }
-        $gps = explode(',', $this->gps);
-        return $gps[0];
+        $gps_array = explode(',', $this->sourceGps);
+        return $gps_array[0];
     }
 
     public function getLonAttribute()
     {
-        if(!isset($this->gps)){
-            return 0;
-        }
-        $gps = explode(',', $this->gps);
-        return $gps[1];
+        $gps_array = explode(',', $this->sourceGps);
+        return $gps_array[1];
     }
 
     static function getSourceInWorkStatus()

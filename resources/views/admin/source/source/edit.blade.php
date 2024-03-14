@@ -29,22 +29,42 @@
                     @method('patch')
                     <div class="form-group">
                         <label for="address">Address
-                            <input class="form-control" value="{{ $source->address ?? old('address') }}" type="text" name="address">
+                            <input class="form-control" value="{{ $source->address ?? old('address') }}" type="text"
+                                   name="address">
                         </label>
                         <label for="connected_power">Connected Power
-                            <input class="form-control" value="{{ $source->connected_power ?? old('connected_power') }}" type="text"
+                            <input class="form-control" value="{{ $source->connected_power ?? old('connected_power') ?? '0.0' }}"
+                                   type="text"
                                    name="connected_power">
                         </label>
                         <label for="gps">GPS
-                            <input class="form-control" value="{{ $source->gps ?? old('gps') }}" type="text" name="gps">
+                            <input class="form-control" value="{{ $source->gps ?? old('gps') ?? '34.517368, 20.669463'}}" type="text" name="gps">
                         </label>
                     </div>
                     <div class="form-group">
-                        <label for="user_id">Staff
-                            <select name="user_id" class="custom-select form-control" id="exampleSelectBorder">
+                        <label for="master_id">Master
+                            <select name="master_id" class="custom-select form-control" id="exampleSelectBorder">
                                 @foreach($users as $user)
-                                    <option {{ $user->id === $source->user->id ? ' selected' : ''}}
+                                    @if($source->master != NULL)
+                                        <option {{ $user->id === $source->master->id ? ' selected' : ''}}
+                                                value="{{ $user->id }}">{{ $user->first_name . ' ' . $user->last_name }}</option>
+                                    @else
+                                        <option
                                             value="{{ $user->id }}">{{ $user->first_name . ' ' . $user->last_name }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </label>
+                        <label for="s_master_id">S Master
+                            <select name="s_master_id" class="custom-select form-control" id="exampleSelectBorder">
+                                @foreach($users as $user)
+                                    @if($source->s_master != NULL)
+                                    <option {{ $user->id === $source->s_master->id ? ' selected' : ''}}
+                                            value="{{ $user->id }}">{{ $user->first_name . ' ' . $user->last_name }}</option>
+                                    @else
+                                        <option
+                                            value="{{ $user->id }}">{{ $user->first_name . ' ' . $user->last_name }}</option>
+                                    @endif
                                 @endforeach
                             </select>
                         </label>

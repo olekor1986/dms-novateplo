@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('address');
             $table->float('connected_power')->nullable();
-            $table->string('gps')->nullable();
+            $table->string('gps')->default('34.517368, 20.669463');
             $table->integer('source_type_id')->nullable();
             $table->integer('city_district_id')->nullable();
             $table->boolean('in_work')->default(true);

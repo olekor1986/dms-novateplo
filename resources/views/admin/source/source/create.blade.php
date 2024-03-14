@@ -31,16 +31,24 @@
                             <input class="form-control" value="{{ old('address') }}" type="text" name="address">
                         </label>
                         <label for="connected_power">Connected Power
-                            <input class="form-control" value="{{ old('connected_power') }}" type="text"
+                            <input class="form-control" value="{{ '0.0' ?? old('connected_power') }}" type="text"
                                    name="connected_power">
                         </label>
                         <label for="gps">GPS
-                            <input class="form-control" value="{{ old('gps') }}" type="text" name="gps">
+                            <input class="form-control" value="{{ '34.517368, 20.669463' ?? old('gps') }}" type="text" name="gps">
                         </label>
                     </div>
                     <div class="form-group">
-                        <label for="user_id">Staff
-                            <select name="user_id" class="custom-select form-control" id="exampleSelectBorder">
+                        <label for="master_id">Master
+                            <select name="master_id" class="custom-select form-control" id="exampleSelectBorder">
+                                @foreach($users as $user)
+                                    <option
+                                        value="{{ $user->id }}">{{ $user->first_name . ' ' . $user->last_name }}</option>
+                                @endforeach
+                            </select>
+                        </label>
+                        <label for="s_master_id">S Master
+                            <select name="s_master_id" class="custom-select form-control" id="exampleSelectBorder">
                                 @foreach($users as $user)
                                     <option
                                         value="{{ $user->id }}">{{ $user->first_name . ' ' . $user->last_name }}</option>

@@ -68,9 +68,17 @@
                                 <dd class="col-sm-8">{{ $source->source_type->title }}</dd>
                                 <dt class="col-sm-4">District</dt>
                                 <dd class="col-sm-8">{{ $source->city_district->title  }}</dd>
-                                <dt class="col-sm-4">User</dt>
+                                <dt class="col-sm-4">Master</dt>
                                 <dd class="col-sm-8">
-                                    <a href="{{ route('admin.user.show', $source->user->id) }}">{{ $source->user->first_name . ' ' . $source->user->last_name }}</a>
+                                    @if($source->master != NULL)
+                                        <a href="{{ route('admin.user.show', $source->master->id) }}">{{ $source->master->first_name . ' ' . $source->master->last_name }}</a>
+                                    @endif
+                                </dd>
+                                <dt class="col-sm-4">S Master</dt>
+                                <dd class="col-sm-8">
+                                    @if($source->s_master != NULL)
+                                        <a href="{{ route('admin.user.show', $source->s_master->id) }}">{{ $source->s_master->first_name . ' ' . $source->s_master->last_name }}</a>
+                                    @endif
                                 </dd>
                                 <dt class="col-sm-4">In Work</dt>
                                 <dd class="col-sm-8">{{ $source->sourceInWorkStatus }}</dd>
@@ -93,134 +101,140 @@
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
-                    <div class="card card-gray">
-                        <div class="card-header">
-                            <h3 class="card-title">Boilers</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                        class="fas fa-minus"></i>
-                                </button>
+                    @if(count($boilers))
+                        <div class="card card-gray">
+                            <div class="card-header">
+                                <h3 class="card-title">Boilers</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                            class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                                <!-- /.card-tools -->
                             </div>
-                            <!-- /.card-tools -->
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Title</th>
-                                    <th>Power</th>
-                                    <th>Fuel</th>
-                                    <th>Mount Year</th>
-                                    <th>Check Date</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($boilers as $boiler)
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
                                     <tr>
-                                        <td>{{ $boiler->index_number }}</td>
-                                        <td>
-                                            <a href="{{ route('admin.boiler.show', $boiler->id) }}">{{ $boiler->title}}</a>
-                                        </td>
-                                        <td>{{ $boiler->power }}</td>
-                                        <td>{{ $boiler->boiler_fuel->title }}</td>
-                                        <td>{{ $boiler->mount_year }}</td>
-                                        <td>{{ $boiler->check_date }}</td>
+                                        <th>#</th>
+                                        <th>Title</th>
+                                        <th>Power</th>
+                                        <th>Fuel</th>
+                                        <th>Mount Year</th>
+                                        <th>Check Date</th>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-                    <div class="card card-gray">
-                        <div class="card-header">
-                            <h3 class="card-title">Pumps</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                        class="fas fa-minus"></i>
-                                </button>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($boilers as $boiler)
+                                        <tr>
+                                            <td>{{ $boiler->index_number }}</td>
+                                            <td>
+                                                <a href="{{ route('admin.boiler.show', $boiler->id) }}">{{ $boiler->title}}</a>
+                                            </td>
+                                            <td>{{ $boiler->power }}</td>
+                                            <td>{{ $boiler->boiler_fuel->title }}</td>
+                                            <td>{{ $boiler->mount_year }}</td>
+                                            <td>{{ $boiler->check_date }}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
                             </div>
-                            <!-- /.card-tools -->
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Title</th>
-                                    <th>Type</th>
-                                    <th>Max Cap</th>
-                                    <th>Max Press</th>
-                                    <th>Engine Power</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($pumps as $pump)
-                                    <tr class="">
-                                        <td>{{ $pump->id }}</td>
-                                        <td>
-                                            <a href="{{ route('admin.pump.show', $pump->id) }}">{{ $pump->title}}</a>
-                                        </td>
-                                        <td>{{ $pump->pump_type->title }}</td>
-                                        <td>{{ $pump->max_capacity }}</td>
-                                        <td>{{ $pump->max_pressure }}</td>
-                                        <td>{{ $pump->engine_power }}</td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                        @endif
                         <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
-                    <div class="card card-gray">
-                        <div class="card-header">
-                            <h3 class="card-title">Heating Pipelines</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                        class="fas fa-minus"></i>
-                                </button>
+                        </div>
+                        <!-- /.card -->
+                        @if(count($pumps))
+                            <div class="card card-gray">
+                                <div class="card-header">
+                                    <h3 class="card-title">Pumps</h3>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                                class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Title</th>
+                                            <th>Type</th>
+                                            <th>Max Cap</th>
+                                            <th>Max Press</th>
+                                            <th>Engine Power</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($pumps as $pump)
+                                            <tr class="">
+                                                <td>{{ $pump->id }}</td>
+                                                <td>
+                                                    <a href="{{ route('admin.pump.show', $pump->id) }}">{{ $pump->title}}</a>
+                                                </td>
+                                                <td>{{ $pump->pump_type->title }}</td>
+                                                <td>{{ $pump->max_capacity }}</td>
+                                                <td>{{ $pump->max_pressure }}</td>
+                                                <td>{{ $pump->engine_power }}</td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
                             </div>
-                            <!-- /.card-tools -->
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Section</th>
-                                    <th>Direct Diam</th>
-                                    <th>Reverse Diam</th>
-                                    <th>Length</th>
-                                    <th>Purpose</th>
-                                    <th>Laying</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($heating_pipelines as $heating_pipeline)
-                                    <tr class="">
-                                        <td>{{ $heating_pipeline->id }}</td>
-                                        <td>
-                                            <a href="{{ route('admin.heating_pipeline.show', $heating_pipeline->id) }}">
-                                                {{ $heating_pipeline->pipe_start . ' - ' . $heating_pipeline->pipe_end }}</a>
-                                        </td>
-                                        <td>{{ $heating_pipeline->direct_diam }}</td>
-                                        <td>{{ $heating_pipeline->reverse_diam }}</td>
-                                        <td>{{ $heating_pipeline->length }}</td>
-                                        <td>{{ $heating_pipeline->heatingPipelinePurposeType }}</td>
-                                        <td>{{ $heating_pipeline->heatingPipelineLayingType }}</td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.card-body -->
-                    </div>
+                        @endif
+                    <!-- /.card -->
+                        @if(count($heating_pipelines))
+                            <div class="card card-gray">
+                                <div class="card-header">
+                                    <h3 class="card-title">Heating Pipelines</h3>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                                class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                    <!-- /.card-tools -->
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Section</th>
+                                            <th>Direct Diam</th>
+                                            <th>Reverse Diam</th>
+                                            <th>Length</th>
+                                            <th>Purpose</th>
+                                            <th>Laying</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($heating_pipelines as $heating_pipeline)
+                                            <tr class="">
+                                                <td>{{ $heating_pipeline->id }}</td>
+                                                <td>
+                                                    <a href="{{ route('admin.heating_pipeline.show', $heating_pipeline->id) }}">
+                                                        {{ $heating_pipeline->pipe_start . ' - ' . $heating_pipeline->pipe_end }}</a>
+                                                </td>
+                                                <td>{{ $heating_pipeline->direct_diam }}</td>
+                                                <td>{{ $heating_pipeline->reverse_diam }}</td>
+                                                <td>{{ $heating_pipeline->length }}</td>
+                                                <td>{{ $heating_pipeline->heatingPipelinePurposeType }}</td>
+                                                <td>{{ $heating_pipeline->heatingPipelineLayingType }}</td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                    @endif
                     <!-- /.card -->
                 </div>
                 <!-- /.col-md-8 -->
@@ -274,44 +288,46 @@
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
-                    <div class="card card-gray">
-                        <div class="card-header">
-                            <h3 class="card-title">Water Meters</h3>
-                            <div class="card-tools">
-                                <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
-                                        class="fas fa-minus"></i>
-                                </button>
+                    @if(count($water_meters))
+                        <div class="card card-gray">
+                            <div class="card-header">
+                                <h3 class="card-title">Water Meters</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse"><i
+                                            class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                                <!-- /.card-tools -->
                             </div>
-                            <!-- /.card-tools -->
-                        </div>
-                        <!-- /.card-header -->
-                        <div class="card-body">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Title</th>
-                                    <th>Diameter</th>
-                                    <th>Purpose</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($water_meters as $water_meter)
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
                                     <tr>
-                                        <td>{{ $water_meter->id }}</td>
-                                        <td>
-                                            <a href="{{ route('admin.water_meter.show', $water_meter->id) }}">{{ $water_meter->title}}</a>
-                                        </td>
-                                        <td>{{ $water_meter->diameter }}</td>
-                                        <td>{{ $water_meter->waterMeterPurpose }}</td>
+                                        <th>ID</th>
+                                        <th>Title</th>
+                                        <th>Diameter</th>
+                                        <th>Purpose</th>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                        </div>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($water_meters as $water_meter)
+                                        <tr>
+                                            <td>{{ $water_meter->id }}</td>
+                                            <td>
+                                                <a href="{{ route('admin.water_meter.show', $water_meter->id) }}">{{ $water_meter->title}}</a>
+                                            </td>
+                                            <td>{{ $water_meter->diameter }}</td>
+                                            <td>{{ $water_meter->waterMeterPurpose }}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        @endif
                         <!-- /.card-body -->
-                    </div>
-                    <!-- /.card -->
+                        </div>
+                        <!-- /.card -->
                 </div>
                 <!-- /.col-md-4 -->
             </div>

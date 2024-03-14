@@ -10,19 +10,16 @@ class CityDistristSeeder extends Seeder
 {
     protected $city_districts = [
         [
-            'title' => 'Central'
+            'title' => 'Central District' /* Приморский */
         ],
         [
-            'title' => 'South'
+            'title' => 'East District' /* Малиновский */
         ],
         [
-            'title' => 'North'
+            'title' => 'North District' /* Суворовский */
         ],
         [
-            'title' => 'East'
-        ],
-        [
-            'title' => 'West'
+            'title' => 'South District' /* Киевский */
         ],
     ];
 

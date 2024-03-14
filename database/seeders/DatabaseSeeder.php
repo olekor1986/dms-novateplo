@@ -16,9 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(30)->create();
 
-        \App\Models\Source::factory(100)->create();
+        //\App\Models\Source::factory(100)->create();
 
         \App\Models\Boiler::factory(400)->create();
 
@@ -26,7 +26,9 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\HeatingPipeline::factory(2000)->create();
 
-        \App\Models\WaterMeter::factory(500)->create();
+        //\App\Models\WaterMeter::factory(500)->create();
+
+        //\App\Models\WaterMeterValue::factory(2000)->create();
 
         $this->call([
             RoleSeeder::class,

@@ -19,7 +19,7 @@ class SourceTypeSeeder extends Seeder
             'title' => 'Heating Unit'
         ],
         [
-            'title' => 'Heating Station'
+            'title' => 'Building'
         ],
     ];
 

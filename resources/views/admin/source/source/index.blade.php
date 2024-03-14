@@ -46,7 +46,8 @@
                                     <th>Fuel</th>
                                     <th>Type</th>
                                     <th>District</th>
-                                    <th>User</th>
+                                    <th>Master</th>
+                                    <th>S Master</th>
                                     <th>In Work</th>
                                     <th>Monitoring</th>
                                     <th>Balance</th>
@@ -81,7 +82,16 @@
                                         </td>
                                         <td>{{ $source->source_type->title }}</td>
                                         <td>{{ $source->city_district->title }}</td>
-                                        <td>{{ $source->user->first_name . ' ' . $source->user->last_name }}</td>
+                                        <td>
+                                            @if($source->master != NULL)
+                                                {{ $source->master->first_name . ' ' . $source->master->last_name }}
+                                            @endif
+                                        </td>
+                                        <td>
+                                            @if($source->s_master != NULL)
+                                                {{ $source->s_master->first_name . ' ' . $source->s_master->last_name }}
+                                            @endif
+                                        </td>
                                         <td>{{ $source->sourceInWorkStatus }}</td>
                                         <td>{{ $source->monitoringStatus }}</td>
                                         <td>{{ $source->sourceBalanceStatus }}</td>
